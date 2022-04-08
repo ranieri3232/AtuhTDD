@@ -1,6 +1,7 @@
 import 'dotenv/config';
 
 const auth = {
-  secret_jwt: process.env.JWT_SECRET,
+  secretJwt: process.env.JWT_SECRET,
+  expiresIn: '1d',
 };
 export { auth };

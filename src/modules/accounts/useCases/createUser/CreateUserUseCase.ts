@@ -2,6 +2,7 @@ import { ICreateUserDTO } from '@modules/accounts/dtos/ICreateUserDTO';
 import { User } from '@modules/accounts/infra/typeorm/entities/User';
 import { IUsersRepository } from '@modules/accounts/repositories/IUsersRepository';
 import { AppError } from '@shared/errors/AppError';
+import bcrypt from 'bcrypt';
 
 class CreateUserUseCase {
   constructor(
@@ -14,7 +15,8 @@ class CreateUserUseCase {
     if (userAlreadyExist) {
       throw new AppError('User already exists');
     }
-    await this.userRepository.create({ name, email, password });
+    const passwordHash = await bcrypt.hash(password, 8);
+    await this.userRepository.create({ name, email, password: passwordHash });
   }
 }
 

@@ -21,7 +21,10 @@ export default {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: ["<rootDir>/src/modules/**/*.ts"],
+  collectCoverageFrom: [
+		"<rootDir>/src/modules/**/*.ts",
+		"!<rootDir>/src/modules/*/dtos/*.ts"
+ ],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: "<rootDir>/src/__tests__/",
@@ -152,10 +155,7 @@ export default {
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: [
-    "/node_modules/",
-		"src/__tests__/coverage"
-  ],
+  testPathIgnorePatterns: [ "/node_modules/" ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
@@ -171,32 +171,6 @@ export default {
 
   // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
   // timers: "real",
-
-  // A map from regular expressions to paths to transformers
-  // transform: {
-	// 	"^.+\\.(t|j)sx?$": [
-	// 		"@swc/jest",
-	// 		{
-	// 			jsc: {
-	// 				parser: {
-	// 					syntax: 'typescript',
-	// 					tsx: false,
-	// 					decorators: true,
-	// 				},
-	// 				target: 'es2017',
-	// 				keepClassNames: true,
-	// 				transform: {
-	// 					legacyDecorator: true,
-	// 					decoratorMetadata: true,
-	// 				},
-	// 			},
-	// 			module: {
-	// 				type: 'es6',
-	// 				noInterop: false,
-	// 			}
-	// 		},
-	// 	],
-	// },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

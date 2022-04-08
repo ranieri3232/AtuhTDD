@@ -1,7 +1,6 @@
-# Awesome Project Build with TypeORM
+# AuthTDD
 
-Steps to run this project:
+Repositório de estudos de TDD
 
-1. Run `npm i` command
-2. Setup database settings inside `data-source.ts` file
-3. Run `npm start` command
+### Objetivos
+Criar uma API rest de cadastro de usuários e tasks utilizando de técnicas de TDD(test driven development)
